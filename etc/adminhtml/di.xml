@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Afterpay\Afterpay\Block\Payment\Info">
+        <arguments>
+            <argument name="config" xsi:type="object">Afterpay\Afterpay\Gateway\Config\Config</argument>
+        </arguments>
+    </type>
+    <type name="Afterpay\Afterpay\Block\Adminhtml\System\Config\Fieldset\AllowedByCountry">
+        <arguments>
+            <argument name="afterpay" xsi:type="object">Afterpay\Afterpay\Model\Method\MethodFacade</argument>
+        </arguments>
+    </type>
+    <virtualType name="Afterpay\Afterpay\Block\Adminhtml\System\Config\Fieldset\Payment" type="Afterpay\Afterpay\Block\Adminhtml\System\Config\Fieldset\AllowedByCountry">
+        <arguments>
+            <argument name="allowedCountriesConfigPath" xsi:type="string">allowed_merchant_countries</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Afterpay\Afterpay\Block\Adminhtml\System\Config\Fieldset\ExpressCheckout" type="Afterpay\Afterpay\Block\Adminhtml\System\Config\Fieldset\AllowedByCountry">
+        <arguments>
+            <argument name="allowedCountriesConfigPath" xsi:type="string">expresscheckout/allowed_merchant_countries</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Items">
+        <plugin name="afterpay_remove_offline_refund_button" type="Afterpay\Afterpay\Plugin\Block\Adminhtml\Order\Creditmemo\Create\Items" />
+    </type>
+    <type name="Magento\CustomerBalance\Block\Adminhtml\Sales\Order\Creditmemo\Controls">
+        <plugin name="afterpay_remove_customer_balance_from_creditmemo" type="Afterpay\Afterpay\Plugin\Block\Adminhtml\CustomerBalance\Order\Creditmemo\Controls" />
+    </type>
+    <type name="Magento\Sales\Block\Adminhtml\Order\View">
+        <plugin name="afterpay_remove_creditmemo_button_from_order_view" type="Afterpay\Afterpay\Plugin\Block\Adminhtml\Order\View" />
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Category\Tree">
+        <plugin name="afterpay_show_not_icluded_in_menu_categories" type="Afterpay\Afterpay\Plugin\Catalog\Model\ResourceModel\Category\Tree" />
+    </type>
+</config>

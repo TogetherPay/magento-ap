@@ -1,0 +1,63 @@
+.afterpay.payment-method {
+    .payment-method-note {
+        &.afterpay-checkout-note {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            text-align: center;
+        }
+    }
+    .payment-method-content {
+        overflow: hidden;
+        padding-right: 22px;
+    }
+    .payment-icon {
+        height: 40px;
+        width: auto;
+    }
+    .actions-toolbar-wraper {
+        margin-top: 1rem;
+        text-align: left;
+        background-color: #f6f7f9;
+        display: inline-block;
+        padding: 15px;
+        .terms-conditions {
+            width: 65%;
+            float: left;
+        }
+        .actions-toolbar {
+            float: right;
+            .action.primary.checkout {
+                line-height: 2.2rem;
+                padding: 14px 17px;
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 1150px) {
+    .afterpay.payment-method {
+        .actions-toolbar-wraper {
+            .terms-conditions {
+                width: 57%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 993px) {
+    .afterpay.payment-method {
+        .actions-toolbar-wraper {
+            .terms-conditions {
+                width: 100%;
+            }
+            .actions-toolbar {
+                width: 100%;
+                margin-top: 1.5rem;
+                .primary, .action.primary.checkout {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

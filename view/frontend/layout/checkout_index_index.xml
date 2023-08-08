@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Afterpay_Afterpay::css/afterpay-checkout.css"/>
+    </head>
+    <body>
+        <referenceBlock name="afterpay.express.checkout.mini.cart.lib" remove="true"/>
+        <referenceBlock name="afterpay.cta.mini.cart.lib" remove="true"/>
+        <referenceBlock name="head.components">
+            <block name="afterpay.widget.checkout.cart.lib" template="Afterpay_Afterpay::express-checkout/lib.phtml" before="-" >
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Afterpay\Afterpay\ViewModel\WidgetCheckout\Lib</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="payments-list" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="afterpay-checkout-notice" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Afterpay_Afterpay/js/view/payment/info/checkout-note</item>
+                                                                    <item name="displayArea" xsi:type="string">afterpay-checkout-notice</item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="template" xsi:type="string">Afterpay_Afterpay/payment/info/checkout-note</item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="afterpay-terms-and-conditions" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Afterpay_Afterpay/js/view/payment/info/terms-and-conditions</item>
+                                                                    <item name="displayArea" xsi:type="string">afterpay-terms-and-conditions</item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="template" xsi:type="string">Afterpay_Afterpay/payment/info/terms-and-conditions</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="renders" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="afterpay-payments" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Afterpay_Afterpay/js/view/payment/payments</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="afterpay" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>
